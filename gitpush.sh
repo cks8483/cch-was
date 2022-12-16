@@ -1,3 +1,3 @@
 git add .
 git commit -m 'fix'
-git push origin main --force
+git push origin prod --force
