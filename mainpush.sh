@@ -1,3 +1,3 @@
 git add .
 git commit -m 'fix'
-git push google main
+git push google main --force

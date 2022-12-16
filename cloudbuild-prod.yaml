@@ -54,8 +54,8 @@ steps:
     args:
     - '-c'
     - |
-       sed "s/GOOGLE_CLOUD_PROJECT/${PROJECT_ID}/g" kubernetes.yaml.tpl | \
-       sed "s/COMMIT_SHA/${SHORT_SHA}/g" > cch-env/kubernetes.yaml
+       sed "s/GOOGLE_CLOUD_PROJECT/${PROJECT_ID}/g" kubernetes-prod.yaml.tpl | \
+       sed "s/COMMIT_SHA/${SHORT_SHA}/g" > cch-env/kubernetes-prod.yaml
   
   # This step pushes the manifest back to hello-cloudbuild-env
   - name: 'gcr.io/cloud-builders/gcloud'
@@ -66,7 +66,7 @@ steps:
     - |
       set -x && \
       cd cch-env && \
-      git add kubernetes.yaml && \
+      git add kubernetes-prod.yaml && \
       git commit -m "Deploying image asia-northeast3-docker.pkg.dev/$PROJECT_ID/my-repository/hello-cloudbuild:${SHORT_SHA}
       Built from commit ${COMMIT_SHA} of repository cch-app
       Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \
