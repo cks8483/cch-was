@@ -20,7 +20,7 @@ steps:
     args:
     - 'build'
     - '-t'
-    - 'asia-northeast3-docker.pkg.dev/$PROJECT_ID/my-repository/hello-cloudbuild:$SHORT_SHA'
+    - 'asia-northeast3-docker.pkg.dev/$PROJECT_ID/my-repository/hello-cloudbuild-prod:$SHORT_SHA'
     - '.'
   
   # This step pushes the image to Artifact Registry
@@ -30,7 +30,7 @@ steps:
     id: Push
     args:
     - 'push'
-    - 'asia-northeast3-docker.pkg.dev/$PROJECT_ID/my-repository/hello-cloudbuild:$SHORT_SHA'
+    - 'asia-northeast3-docker.pkg.dev/$PROJECT_ID/my-repository/hello-cloudbuild-prod:$SHORT_SHA'
   # [END cloudbuild]
   
   # [START cloudbuild-trigger-cd]
