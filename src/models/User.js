@@ -26,8 +26,12 @@ class User{
 
   async register(){
     const client = this.body;
-    const response = await UserStorage.save(client);
-    return response;
+    try{
+        const response = await UserStorage.save(client);
+        return response;
+        } catch(err){
+            return { success: false, msg: "존재하는 아이디 입니다."};
+        }
   }
 }
 
